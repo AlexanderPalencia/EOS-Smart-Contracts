@@ -1,0 +1,99 @@
+*** Notas: El nombre del contrato y la carpeta tiene que ser el mismo ***
+
+Create Wallet 
+cleos wallet create -n NombreWallet -f Archivo.txt
+
+Open Wallet
+cleos wallet open -n NombreWallet
+
+Unlock Wallet
+cleos wallet unlock -n NombreWallet --password KeyPrivate
+
+Import Private Key
+cleeos wallet import -n NombreWallet
+
+cleos -u http://jungle2.cryptolions.io:80 get account smurfalexp23
+
+Buy RAM
+cleos -u http://jungle2.cryptolions.io:80 system buyram smurfalexp23 smurfalexp23 "50 EOS"
+
+Compile Contract
+eosio-cpp hello.cpp -o hello.wasm
+Compile Contract with structure
+
+
+Deploy Contract
+cleos -u http://jungle2.cryptolions.io:80 set contract AccountName /home/alex/EOSBlockChain/contracts/contratoufm -p AccountName@active
+
+Ver contrato deployado en https://jungle.bloks.io/
+
+Call Contract
+cleos -u http://jungle2.cryptolions.io:80 push action AccountNameContract FunctionName '["Data"]' -p AccountName@active
+
+Generate Private & public Keys and save in a file
+cleos -u http://jungle2.cryptolions.io:80 create key -f KeysUser.txt
+
+Create account to Jungle Testnet
+cleos -u http://jungle2.cryptolions.io:80 system newaccount --stake-net "10.0000 EOS" --stake-cpu "10.0000 EOS" --buy-ram-kbytes 4 AccountNameOwner NewAccountName OwnerPublicKey ActivePublicKey
+
+Send EOS
+cleos -u http://jungle2.cryptolions.io:80 transfer YourAccountName AccountNameToSend "5 EOS" "Message"
+
+*** Importante a la hora de crear los tokens, las transacciones o todo lo relacionado tiene que tener la cantidad exacta de 4 decimales ***
+
+Create Token 
+cleos -u http://jungle2.cryptolions.io:80 push action AccountNameContract create '[ "NombreDelEmisor", "1000000000.0000 APC"]' -p smurfalexp24@active
+
+Issue Tokens
+cleos -u http://jungle2.cryptolions.io:80 push action smurfalexp24 issue '[ "smurfalexp24", "1000.0000 AP", "Mandando Token PP"]' -p smurfalexp24@active
+
+
+Transfer Tokens
+cleos -u http://jungle2.cryptolions.io:80 push action smurfalexp24 transfer '[ "smurfalexp24", "ricardojvm53", "25.0000 PP", "Test mandando Tokens" ]' -p smurfalexp24@active
+
+
+Get Balance of Tokens
+cleos -u http://jungle2.cryptolions.io:80 get currency balance smurfalexp24 smurfalexp24 AP
+
+
+
+
+Create a basic structure contract
+eosio-init -project "ejem"
+
+
+
+
+
+Resouces links
+
+https://developers.eos.io/eosio-cleos/reference
+https://hackernoon.com/how-to-create-and-deploy-your-own-eos-token-1f4c9cc0eca1
+*** Muy bueno ***
+https://www.academiablockchain.com/2019/08/27/tutorial-como-crear-un-hello-world-contract-en-eos/
+https://blog.springrole.com/the-mechanics-behind-eosio-ram-allocation-940204bc5b7e
+*** MUY BUENO ***
+https://docs.jungletestnet.io/docs/qa
+https://medium.com/eos-new-york/managing-your-eos-owner-active-permissions-c76bdaf24e6b
+
+https://steemit.com/eos/@eos-asia/deploying-your-first-production-eos-dapp
+*** Ejemplo con codigo ***
+https://medium.com/infinitexlabs/the-ultimate-end-to-end-eos-dapp-development-tutorial-part-1-2f99c512086c
+https://developers.eos.io/eosio-home/docs
+
+
+https://jungle.bloks.io/
+https://github.com/CryptoLions/EOS-Jungle-Testnet
+
+*** Front-End ***
+https://medium.com/coinmonks/dapp-development-on-eos-blockchain-using-eosjs-and-scatter-557f1b5b65d0
+
+
+
+
+https://cmichel.io/cpp-guide-for-eos-development-basics/
+https://www.eoscanada.com/en/abc-eos
+
+https://medium.com/quillhash/eos-smart-contract-development-analysing-eos-standard-token-contract-9b627e781dff
+https://github.com/AnthonyCalandra/modern-cpp-features#auto
+http://www.cplusplus.com/doc/tutorial/namespaces/
